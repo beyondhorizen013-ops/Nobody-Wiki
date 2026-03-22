@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>{{ user.name or user.login }} - Sub-Zero Wiki</title>
+</head>
+<body class="bg-[#f6f6f6] font-serif text-[#202122] p-4 md:p-10">
+    <div class="max-w-5xl mx-auto bg-white p-8 border border-[#a2a9b1] shadow-sm">
+        <header class="border-b border-[#a2a9b1] mb-6 pb-2">
+            <h1 class="text-4xl font-normal">{{ user.name or user.login }}</h1>
+            <div class="text-sm italic text-gray-600">From Sub-Zero, the encyclopedia for the rest of us</div>
+        </header>
+
+        <div class="flex flex-col md:flex-row gap-8">
+            <div class="flex-1 text-lg leading-relaxed">
+                <p class="mb-4">
+                    <b>{{ user.name or user.login }}</b> (born unknown) is a 
+                    <span class="text-[#3366cc] underline">GitHub user</span> based in 
+                    <b>{{ user.location or "a mysterious void" }}</b>. 
+                </p>
+                <p class="mb-4">
+                    With a following of exactly <b>{{ user.followers }}</b> people, {{ user.login }} 
+                    has managed to maintain a level of obscurity that experts call "impressively consistent." 
+                    Their primary contribution to society involves <b>{{ user.public_repos }}</b> repositories 
+                    that are mostly forks of other people's better ideas.
+                </p>
+                <h2 class="text-2xl border-b border-[#a2a9b1] mb-2 mt-6 font-normal">History</h2>
+                <p>Digital records suggest a bio of: <i>"{{ user.bio or 'No bio provided. Minimalist or just lazy?' }}"</i></p>
+            </div>
+
+            <aside class="w-full md:w-72 bg-[#f8f9fa] border border-[#a2a9b1] p-2 text-sm">
+                <div class="text-center font-bold text-lg p-2 bg-[#eaecf0] border-b border-[#a2a9b1]">
+                    {{ user.login }}
+                </div>
+                <img src="{{ user.avatar_url }}" class="w-full border-b border-[#a2a9b1]">
+                <table class="w-full mt-2 border-collapse">
+                    <tr class="border-b border-gray-200">
+                        <th class="text-left p-1">Status</th>
+                        <td>Non-Notable</td>
+                    </tr>
+                    <tr class="border-b border-gray-200">
+                        <th class="text-left p-1">Clout</th>
+                        <td>{{ user.followers }} / 1,000,000</td>
+                    </tr>
+                    <tr>
+                        <th class="text-left p-1">Employer</th>
+                        <td>{{ user.company or "Self-Unemployed" }}</td>
+                    </tr>
+                </table>
+            </aside>
+        </div>
+    </div>
+</body>
+</html>
